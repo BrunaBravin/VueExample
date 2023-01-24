@@ -1,52 +1,68 @@
 <template>
-  <button class="button is-success" @click="incluir = true" id="new">Incluir</button>
+    <div class="modal" :style="incluir ? 'display: block' : ''">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <form class="box" @submit.prevent="salvar">
+                    <div class="field">
+                        <label class="label" for="m-nome">Nome</label>
+                        <div class="control">
+                            <input id="m-nome" class="input" type="text" v-model="cadastro.nome">
+                        </div>
+                    </div>
 
-  <Teleport to="#modal-container">
-    <BaseModal v-if="incluir">
-        <div class="modal-container modal">
-            <div class="modal-background"></div>
-            <div class="modal-content">
-                <div class="box">
-                    <form class="box">
-                        <div class="field">
-                            <label class="label" for="m-nome">Nome</label>
-                            <div class="control">
-                                <input id="m-nome" class="input" type="text">
-                            </div>
+                    <div class="field">
+                        <label for="m-idade" class="label">Idade</label>
+                        <div class="control">
+                            <input id="m-idade" class="input" type="text" v-model="cadastro.idade">
                         </div>
-        
-                        <div class="field">
-                            <label for="m-idade" class="label">Idade</label>
-                            <div class="control">
-                                <input id="m-idade" class="input" type="text">
-                            </div>
+                    </div>
+                    <div class="field">
+                        <label for="m-email" class="label">Email</label>
+                        <div class="control">
+                            <input id="m-email" class="input" type="text" v-model="cadastro.email">
                         </div>
-                        <div class="field">
-                            <label for="m-email" class="label">Email</label>
-                            <div class="control">
-                                <input id="m-email" class="input" type="text">
-                            </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="m-senha" class="label">Senha</label>
+                        <div class="control">
+                            <input id="m-senha" class="input" type="password" v-model="cadastro.senha">
                         </div>
-    
-                        <div class="field">
-                            <label for="m-senha" class="label">Senha</label>
-                            <div class="control">
-                                <input id="m-senha" class="input" type="password">
-                            </div>
-                        </div>
-        
-                        <button id="btnSalvar" class="button">Salvar</button>
-                        <button class="button">Cancel</button>
-                    </form>
-                </div>
+                    </div>
+
+                    <input id="btnSalvar" class="button" type="submit" value="Enviar">
+                    <button class="button" @click="incluir = !incluir">Cancel</button>
+                </form>
             </div>
         </div>
-    </BaseModal>
-  </Teleport>
+    </div>
 </template>
 
 <script>
+
 export default {
-    name: 'CadastroModal'
+    name: 'CadastroModal',
+  props:{
+    incluir: {
+      required: true
+    }
+  },
+  data(){
+      return{
+        cadastro:{
+          nome: '',
+          email: '',
+          senha: '',
+          idade: ''
+        },
+        arrCadastros: []
+      }
+  },
+  methods:{
+    salvar(){
+      this.arrCadastros.push(this.cadastro)
+    }
+  }
 }
 </script>

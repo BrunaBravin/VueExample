@@ -5,7 +5,7 @@
         <h2 class="title">Cadastro de Funcionários</h2>
       </div>
       <div class="column">
-        <CadastroModal />
+        <slot></slot>
       </div>
       <div class="column">
         <button class="button is-success is-small">Buscar dados</button>
@@ -21,6 +21,16 @@ export default {
   name: 'CadastroMenu',
   components: {
     CadastroModal
+  },
+  data(){
+    return{
+      incluir: false,
+    }
+  },
+  methods:{
+    teste(){
+      this.incluir = !this.incluir
+    }
   }
 }
 </script>

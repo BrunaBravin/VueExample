@@ -1,7 +1,7 @@
 <script setup>
   import HeaderHome from './components/HeaderHome.vue'
   import ListCadastro from './components/ListCadastro.vue'
-  import CadastroMenu from './components/CadastroMenu.vue'
+  import Cadastro from "./pages/Cadastro.vue";
 </script>
 
 
@@ -10,7 +10,7 @@
     <HeaderHome />
   </header>
   <main>
-    <CadastroMenu />
+    <Cadastro/>
     <ListCadastro />
   </main>
   <div id="modal-container"></div>
