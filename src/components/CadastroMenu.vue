@@ -1,4 +1,3 @@
-
 <template>
 <div class="box">
     <div class="columns is-mobile">
@@ -6,18 +5,22 @@
         <h2 class="title">Cadastro de Funcionários</h2>
       </div>
       <div class="column">
-        <button class="button is-success" id="new">Incluir</button>
+        <CadastroModal />
       </div>
       <div class="column">
         <button class="button is-success is-small">Buscar dados</button>
         <input id="pesquisa" type="search"/>
       </div>
-    </div>
+    </div>    
 </div>
 </template>
 
 <script>
+import CadastroModal from './CadastroModal.vue'
 export default {
-  name: 'CadastroMenu'
+  name: 'CadastroMenu',
+  components: {
+    CadastroModal
+  }
 }
 </script>

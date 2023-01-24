@@ -13,7 +13,7 @@
     <CadastroMenu />
     <ListCadastro />
   </main>
-  
+  <div id="modal-container"></div>
 </template>
 
 

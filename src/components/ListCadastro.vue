@@ -11,7 +11,7 @@
             <th class="acao">Excluir</th>   
             <th class="acao">Selecionar</th>    
             <th>
-              <button class="acao" id="extra">Excluir selecionados</button>
+              <button v-show="excluir_selecionados">Excluir selecionados</button>
             </th>        
           </tr>
         </thead>
@@ -19,7 +19,6 @@
         </tbody>
       </table>
     </div>
-    <p> {{ teste }}</p>
   </template>
   
   <script>
@@ -27,8 +26,13 @@
     name: 'HeaderHome',
     Data(){
         return {
-            teste: 'Testando'
+            excluir_selecionados: false
         }
+    },
+    methods: {
+    excluir_selecionados() {
+      this.excluir_selecionados = !this.excluir_selecionados
     }
+  }
   }
   </script>
