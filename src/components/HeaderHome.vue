@@ -1,6 +1,6 @@
 <template>
   <header>
-    <section class="hero is-success ">
+    <section class="hero is-link ">
     <div class="hero-body is-full-height">
       <div class="container">
         <h1 class="title">

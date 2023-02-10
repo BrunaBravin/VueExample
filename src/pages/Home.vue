@@ -1,7 +1,11 @@
 <template>
-    <HeaderHome />
+    <p>HOME</p>
+    
 </template>
 
 <script>
-    import HeaderHome from "../components/HeaderHome.vue"
+    export default {
+        name: "Home"
+    }
+
 </script>

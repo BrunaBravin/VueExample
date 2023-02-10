@@ -1,16 +1,16 @@
 <script setup>
-  import Footer from "./components/Footer.vue"
+  import HeaderHome from "./components/HeaderHome.vue";
   import Navbar from "./components/Navbar.vue"
+  import Footer from "./components/Footer.vue";
 </script>
 
 
 <template>
+    <HeaderHome />
     <Navbar />
   <main>
-    <router-view />
+      <router-view /> 
   </main>
-  <Footer />
+    <Footer />
 </template>
-
-
 
