@@ -21,7 +21,7 @@
 
       <div class="column is-2">
           <p class="control">
-            <button class="button is-default is-link is-light" v-show="excluir_selecionados" @click="excluiVarios()">Excluir selecionados</button>  
+            <button class="button is-default is-danger is-light" v-show="excluir_selecionados" @click="excluiVarios()">Excluir selecionados</button>  
           </p> 
       </div>
 
@@ -36,25 +36,63 @@
           <tbody>
             <tr v-for="(cadastro, index) in arrCadastros" :key="index">
               <div class="box">
-                <td>{{ cadastro.id }}</td>
-                <td>{{ cadastro.nome }}</td>
-                <td>{{ cadastro.idade }}</td>
-                <td>{{ cadastro.email }}</td>
-                <td>
-                  <button @click="$emit('editarCadastro', {cadastro:cadastro})" class="waves-effect btn-small blue darken-1">
-                    <i class="material-icons">editar</i>
-                  </button>
-                  <button @click="confirma(cadastro)" class="waves-effect btn-small red darken-1">
-                    <i class="material-icons">excluir</i>
-                  </button>
-                </td>
-                <td><input v-bind:id="cadastro.id" type="checkbox" @change="verificaSelecionados()" class="checkbox"></td>
-              </div>
-            </tr>
-          </tbody>
-        </table>
-        <span class="bulma-arrow-mixin"></span>
-      </div>
+                <div class="columns">
+
+                  <div class="column"><input v-bind:id="cadastro.id" type="checkbox" @change="verificaSelecionados()" class="checkbox"></div>
+                  <div class="column is-1">
+                    <span class="icon is-large">
+                      <span class="fa-stack fa-2x">
+                        <i class="fas fa-user fa-border fa-stack-2x" id="borda"></i>
+                      </span>
+                    </span>
+                  </div>
+                                
+                  <div class="column is-2">
+                    <p class="elementos">Nome: {{ cadastro.nome }}</p>
+                    <div class="columns is-mobile">
+                      <div class="column">
+                        <p class="elementos">e-mail: {{ cadastro.email }}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="column is-7">
+                    <p class="elementos">Idade: {{ cadastro.idade }}</p>
+                    <div class="columns is-mobile">
+                      <div class="column">
+                        <p class="elementos" >senha: {{ cadastro.senha }}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="column">
+                    <div class="control has-icons-left">
+                      <button @click="$emit('editarCadastro', {cadastro:cadastro})" class="button is-default is-link is-light">
+                      </button>
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-pen" id="iconboldpen"></i>
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <div class="column is-3">
+                    <div class="control has-icons-left">
+                        <button @click="confirma(cadastro)" class="button is-default is-danger is-light">
+                        </button>
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-trash" id="iconboldtrash"></i>
+                        </span>
+                      </div> 
+                  </div>
+                      
+                </div>
+              </div>                
+
+          </tr>
+        </tbody>
+      </table>
+      <div class="container content "><span class="bulma-arrow-mixin mt-6"></span></div> 
+    </div>
 
   </template>
   
@@ -148,25 +186,55 @@
 
 <style scoped>
 
+  #iconboldpen{
+    color: rgb(86, 143, 207);
+  }
+
+  #iconboldtrash{
+    color: rgb(207, 86, 86);
+  }
+
+  .elementos{
+    font-weight: 600;
+  }
+
+  #borda{
+    border-radius: 12px;
+    box-shadow: 3px 3px #dfdfdf;
+  }
+  .icon{
+   border-radius: 12px;
+  }
+
+  .box{
+    margin: 2px;
+  }
+
   .button{
     border-radius: 12px;
     border-style: outset;
-    padding: 20px 30px;
+    padding: 20px 20px;
     font-weight: 400;
     box-shadow: 0px 2px #dfdfdf;
   }
 
- #pesquisa{
-  border-radius: 12px;
-  border-color: #136fb9;
-  border-width: 3px;
-  padding: 17px;
-  padding-left: 30px;
+  #user{
+    background-color: #136fb9;
+    padding: 25px 25px 25px 25px;
+  }
+
+  #pesquisa{
+    border-radius: 12px;
+    border-color: #136fb9;
+    border-width: 3px;
+    padding: 17px;
+    padding-left: 30px;
   /* primeira forma de fazer o icon da barra de pesquisa(porém é a maneira "crua"):
   background: url("../assets/Icons/search-interface-symbol.png") no-repeat; 
   background-size: 15px;
   background-position: 0.2cm;
   padding-left: 30px; */
+
  }
 
 

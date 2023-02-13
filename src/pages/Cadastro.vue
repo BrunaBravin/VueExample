@@ -1,9 +1,9 @@
 <template>
   <cadastro-modal v-if="incluir" :arrCadastros="arrCadastro" :cadastro="cadastro" :cadEditar="cadEditar" :index="index" >
 
-    <button id="btnSalvar" class="button" type="submit" @click.prevent="salvar()" value="Enviar">Enviar</button>
-
-    <button id="btnCancelar" class="button" @click.prevent="fechar()">Cancel</button>
+    <button id="btnSalvar" class="button is-default is-success is-light" type="submit" @click.prevent="salvar()" value="Enviar">Enviar</button>
+ 
+    <button id="btnCancelar" class="button is-default is-danger is-light" @click.prevent="fechar()">Cancel</button>
 
   </cadastro-modal>
   <div class="box">
@@ -116,6 +116,14 @@ export default {
 </script>
 
 <style scoped>
+
+.button{
+    border-radius: 12px;
+    border-style: outset;
+    padding: 20px 20px;
+    font-weight: 400;
+    box-shadow: 0px 2px #dfdfdf;
+  }
   .box{
     margin-top: 2px;
   }
